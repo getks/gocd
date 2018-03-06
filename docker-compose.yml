@@ -1,0 +1,24 @@
+version: '3'
+services:
+  gocd_server:
+    image: gocd/gocd-server:v18.1.0 
+    ports:
+     - "8153:8153"
+     - "8154:8154"
+    volumes:
+      - "/Users/khushboo/shiny_spike/cruise-config.xml:/godata/config/cruise-config.xml"
+  gocd_agent:
+    image: gocd/gocd-agent-alpine-3.7:v18.1.0 
+    depends_on: 
+      - gocd_server
+    environment:
+      GO_SERVER_URL: "https://gocd_server:8154/go"
+      AGENT_AUTO_REGISTER_KEY: "388b633a88de126531afa41eff9aa69e"
+      AGENT_AUTO_REGISTER_RESOURCES: "gocd"
+      AGENT_AUTO_REGISTER_ENVIRONMENTS: "dev,qa,prod"
+      AGENT_AUTO_REGISTER_HOSTNAME: "my_gocd_agent"
+  shiny:
+    image: quantumobject/docker-shiny 
+    ports:
+     - "3838:3838"
+

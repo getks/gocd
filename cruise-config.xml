@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="104">
+  <server artifactsdir="artifacts" agentAutoRegisterKey="388b633a88de126531afa41eff9aa69e" webhookSecret="b29b8f38-043e-42f8-8dd8-21e6f3f27337" commandRepositoryLocation="default" serverId="04088ebf-296a-4bfb-9cc3-219177f1b3be" tokenGenerationKey="404fd4a1-88b3-4245-814f-1266acef2461" />
+  <agents>
+    <agent hostname="my_gocd_agent" ipaddress="172.18.0.4" uuid="a6e9b835-596d-4774-b39c-d969e76ba25f">
+      <resources>
+        <resource>gocd</resource>
+      </resources>
+    </agent>
+  </agents>
+</cruise>
